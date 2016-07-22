@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div clas='container-fluid'
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">Test App</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="inactive"><a href="/">Home<span class="sr-only">(current)</span></a></li>
+	          </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="/signin">Login</a></li>
+	          </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	 </div>
+</nav>
+<div class='container-fluid'>
+<h3>Register</h3>
+				<div class="col-sm-offset-2 col-sm-4">{% with messages = get_flashed_messages(with_categories=true) %}
+			      {% if messages %}
+			        {% for category,message in messages %}
+			          <p class="{{ category }}">{{message}}</p>
+			        {% endfor %}
+			      {% endif %}
+			    {% endwith %}</div>
+</div>
+	<div id='form' class='container-fluid'>
+	<form action='/users/create' method="POST" class="form-horizontal">
+		<div class='form-group'>
+			<label for='inputFirstName' class="col-sm-2 control-label">First Name</label>
+			<div class="col-sm-4">
+				<input type="text" placeholder="First Name" class="form-control" name='first_name'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label for='inputLastName' class='col-sm-2 control-label'>Last Name</label>
+			<div class='col-sm-4'>
+				<input type="text" placeholder="Last Name" class="form-control" name='last_name'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label for='inputEmail' class='col-sm-2 control-label'>Email</label>
+			<div class='col-sm-4'>
+				<input type="text" placeholder="Email" ="" class="form-control" name='email'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label for='inputPassword' class='col-sm-2 control-label'>Password <span><p>(at least 8 characters)</p></span></label>
+			<div class='col-sm-4'>
+				<input type="text" placeholder="Password"  class="form-control" name='password'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label for='inputConfirmPassword' class='col-sm-2 control-label'>Confirm Password</label>
+			<div class='col-sm-4'>
+				<input type="text" placeholder="Confirm Password"  class="form-control" name='confirm_pw'>
+			</div>
+		</div>
+		<div class="form-group">
+						
+			<div class='col-sm-offset-2 col-sm-4'>
+				<button type = submit class="btn btn-success">Register</button>
+			</div>
+		</div>
+	</form>
+	<div class="container">
+		<div class='col-sm-offset-2 col-sm-4'>
+			<a href="/signin">Already have an account? Click here to login!</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>
